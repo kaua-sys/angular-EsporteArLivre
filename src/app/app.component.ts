@@ -7,7 +7,7 @@ import { AtletaComponent } from './component/atleta/atleta.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MenuComponentComponent,AtletaComponent],
+  imports: [RouterOutlet, MenuComponentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
