@@ -71,3 +71,24 @@ button{
     background-color: var(--botao02);
     margin-right: 20px;
 }
+
+#form-atleta input,
+#form-atleta select{
+    transition: .3s;
+}
+
+#form-atleta input:hover,
+#form-atleta select:hover{
+    transform: scale(1.01);
+}
+
+
+#btnAdd:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(11, 186, 17, 0.7);
+}
+
+#btnLimpar:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(186, 17, 11, 0.7);
+}
