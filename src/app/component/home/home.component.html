@@ -1,3 +1,13 @@
 <div id="section-home">
-    <span id="titulo-esporte">Esporte</span><span id="titulo-arlivre">ArLivre</span>
+    <span id="titulo-esporte">Esporte</span>
+    <span id="titulo-arlivre" (click)="mostrarKchau()">ArLivre</span>
+
+
+    @if (carroCorrendo) {
+        <div class="carro-corrida">🏎️💨</div>
+    }
 </div>
+
+@if (exibirMensagem) {
+    <p id="mensagem-kchau">Kchau ⚡</p>
+}
