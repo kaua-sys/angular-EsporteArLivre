@@ -1,0 +1,19 @@
+<section id="form">
+    <h2>Cadastro Corrida</h2>
+
+    <form action="" id="form-corrida">
+
+        <label for="descricao">Descrição da corrida</label>
+        <textarea name="descricao" id="descricao" cols="30" rows="10" required placeholder="Ex:5º Maratona noturna da cidade"></textarea>
+
+        <label for="data">Data da corrida</label>
+        <input type="date" name="data" id="data" required>
+
+        <label for="distancia">Distância disponíveis</label>
+        <input type="radio" name="distancia" id="distancia5" [(ngModel)] = 'distancia'>5km
+        <input type="radio" name="distancia" id="distancia10" [(ngModel)] = ' distancia'>10km
+        <input type="radio" name="distancia" id="distancia25" [(ngModel)] = 'distancia'>25km
+
+        <button type="submit" id="btnAdd">Cadastrar Corrida</button>
+    </form>
+</section>
