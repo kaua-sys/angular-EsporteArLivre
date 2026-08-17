@@ -52,7 +52,7 @@ export class AtletaComponent {
     atleta.cidade = this.cidade
     atleta.uf = this.uf
 
-    this.atletaService.adicionarAtleta(atleta)
+    this.atletaService.salvarAtleta(atleta)
     this.limparDados()
 
     this.atletaService.listarAtletas()
