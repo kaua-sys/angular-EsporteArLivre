@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Corrida } from '../models/Corrida';
-import { Atleta } from '../models/Atleta';
+
 
 @Injectable({
   providedIn: 'root'
