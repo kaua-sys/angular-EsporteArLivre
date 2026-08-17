@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Atleta } from '../models/Atleta';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AtletaServiceService {
+  /*
   //Declarando Array atletas
   private atletas: Atleta[] = []
-
   //Declaração das funções de manipulção do Array
   //Adicionando elemento
   adicionarAtleta(atleta: Atleta) {
@@ -38,6 +40,6 @@ export class AtletaServiceService {
   alterarElemento(atleta: Atleta) {
     let posArray = this.atletas.findIndex(elem => elem.id !== atleta.id)
     this.atletas[posArray] = atleta
-  }
-  constructor() { }
+  }*/
+  constructor(private http: HttpClient) { }
 }
