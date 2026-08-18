@@ -1,1 +1,19 @@
-<p>listar-atleta works!</p>
+<section id="section-lista-Atleta">
+    <h2>Lista Atletas</h2>
+
+    @for(elem of listaAtletas(); track elem.id){
+        <div class="atleta-item">
+            <span class="span-dados-atleta">
+                {{elem.id}} - {{elem.nome}} - {{elem.cpf}} - {{elem.cidade}} / {{elem.uf}}
+            </span>
+            <span class="span-lnk-atletas">
+                <a class="lnk-atleta lnk-alterar" (click) = "carregaDadosAtletaForm(elem)">A</a>
+                <a class="lnk-atleta lnk-excluir" (click) = "excluir(elem.id)">E</a>
+            </span>
+        </div>
+    }@empty{
+        <div class="div-item-pessoa">
+            Nenhum Registro na Lista
+        </div>
+    }
+</section>
