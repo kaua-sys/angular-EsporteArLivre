@@ -18,10 +18,12 @@ export class ListarAtletaComponent {
 
   constructor(private listaService: AtletaServiceService, private router: Router) {}
 
+  //Inicializa automaticamente a função listar
   ngOnInit(){
     this.listar()
   }
 
+  //Função para que ele possa listar os atletas cadastrados e seu dados
   listar() {
     this.listaService.listarAtletas().subscribe({
       next:(dadosAtletas) => {
@@ -36,6 +38,7 @@ export class ListarAtletaComponent {
     })
   }
 
+  //Função para que possa excluir os atletas e dados cadastrados
   excluir(id:number) {
     if(confirm("Deseja Excluir o Atleta")) {
       this.listaService.excluirAtleta(id).subscribe({
@@ -51,6 +54,7 @@ export class ListarAtletaComponent {
     }
   }
 
+  //Função para que os dados sejam carregados e possam ser alterados
   carregaDadosAtletaForm(atleta:Atleta) {
     this.router.navigate(['/cadastroAtleta', atleta.id])
   }
