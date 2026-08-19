@@ -43,26 +43,31 @@ export class AtletaServiceService {
   }*/
   constructor(private http: HttpClient) { }
 
+  //Listar elementos
   listarAtletas(): Observable<Atleta[]> {
     const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Atleta`
     return this.http.get<Atleta[]>(urlApi);
   }
 
+  //Listar elemento
   listarAtleta(idAtleta: number): Observable<Atleta>{
     const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Atleta/${idAtleta}`
     return this.http.get<Atleta>(urlApi)
   }
 
+  //Adicionando elemento
   salvarAtleta(atleta:Atleta): Observable<Atleta> {
     const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Atleta`
     return this.http.post<Atleta>(urlApi,atleta)
   }
 
+  //Remover elemento
   excluirAtleta(idAtleta:number): Observable<Atleta> {
     const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Atleta/${idAtleta}`
     return this.http.delete<Atleta>(urlApi)
   }
 
+  //Atlrerando elemento do Array
   alterarAtleta(atleta: Atleta): Observable<Atleta> {
     const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Atleta/${atleta.id}`
     return this.http.put<Atleta>(urlApi,atleta)
