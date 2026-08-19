@@ -1,49 +1,95 @@
 #section-lista-Atleta {
-    width: 1000px;
-    min-height: 550px;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 400px;
     margin: 20px auto;
     padding: 25px;
-    color: var(--cor-primaria);
-    font-size: 20px;
+    color: var(--cor--primaria);
+    font-size: 1.2rem;
 }
 
 .atleta-item {
     width: 100%;
-    min-height: 35px;
-    padding: 10px 15px;
-    margin: 20px 0px;
+    min-height: 60px;
+    padding: 15px 20px;
+    margin: 15px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .atleta-item:hover {
     background-color: var(--cor02);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .span-dados-atleta {
-    width: 90%;
-    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-right: 15px;
+    word-break: break-word;
 }
 
 .span-lnk-atletas {
-    width: 10%;
-    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
+    gap: 15px;
+    min-width: 120px;
 }
 
 .lnk-atleta {
     text-decoration: none;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .lnk-alterar {
-    color: var(--botao02);
+    color: var(--botao01);
+    border: 1px solid var(--botao01);
+}
+
+.lnk-alterar:hover {
+    background-color: var(--botao01);
+    color: #ffffff;
 }
 
 .lnk-excluir {
-    color: var(--botao01);
+    color: var(--botao02);
+    border: 1px solid var(--botao02);
+}
+
+.lnk-excluir:hover {
+    background-color: var(--botao02);
+    color: #ffffff;
+}
+
+
+@media (max-width: 600px) {
+    .atleta-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .span-dados-atleta {
+        width: 100%;
+    }
+
+    .span-lnk-atletas {
+        width: 100%;
+        justify-content: flex-end;
+    }
 }
