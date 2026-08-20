@@ -1,37 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Corrida } from '../models/Corrida';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CorridaServiceService {
+  
+  constructor(private http: HttpClient) { }
 
   private corridas: Corrida[] = []
 
-  adicionarCorrida(corrida: Corrida) {
-    corrida.id = this.corridas.length + 1
-    this.corridas.push(corrida)
+  adicionarCorrida(corrida: Corrida): Observable<Corrida>  {
+    const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Corrida`
+    return this.http.post<Corrida>(urlApi,corrida)
   }
 
-  listarCorridas() {
-    console.table(this.corridas)
-
-    return this.corridas
+  listarCorridas(): Observable<Corrida[]> {
+    const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Corrida`
+    return this.http.get<Corrida[]>(urlApi)
   }
 
-  removerElemento(idCorrida: number) {
-    this.corridas = this.corridas.filter(elem => elem.id !== idCorrida)
+  listarCorrida(idCorrida: number): Observable<Corrida>{
+    const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Corrida/${idCorrida}`
+    return this.http.get<Corrida>(urlApi)
   }
 
-  removerElemento2(corrida: Corrida){
-    let posArray = this.corridas.findIndex(elem => elem.id !== corrida.id)
-    this.corridas.slice(1,posArray)
+  removerCorrida(idCorrida: number): Observable<Corrida> {
+   const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Corrida/${idCorrida}`
+   return this.http.delete<Corrida>(urlApi)
   }
 
-  alterarElemento(corrida: Corrida) {
-    let posArray = this.corridas.findIndex(elem => elem.id !== corrida.id)
-    this.corridas[posArray] = corrida
+  alterarCorrida(corrida: Corrida): Observable<Corrida> {
+    const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Corrida/${corrida.id}`
+    return this.http.put<Corrida>(urlApi,corrida)
   }
-  constructor() { }
 }
