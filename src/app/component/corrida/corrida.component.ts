@@ -58,7 +58,7 @@ export class CorridaComponent {
     if(this.editarCorrida) {
       corrida.id = this.idCorrida
 
-      this.corridaService.adicionarCorrida(corrida).subscribe({
+      this.corridaService.alterarCorrida(corrida).subscribe({
         next:(resposta) =>{
           console.log(resposta)
         },

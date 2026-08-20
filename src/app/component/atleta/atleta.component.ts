@@ -93,7 +93,7 @@ carregaDados(idAtleta: number){
     if(this.editar) {
       atleta.id = this.idAtleta
 
-      this.atletaService.salvarAtleta(atleta).subscribe({
+      this.atletaService.alterarAtleta(atleta).subscribe({
         next: (resposta) =>{
           console.log(resposta)
         },
