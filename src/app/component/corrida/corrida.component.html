@@ -1,5 +1,5 @@
 <section id="form">
-    <h2>Cadastro Corrida</h2>
+    <h2>{{!editarCorrida ? 'Cadastrar': 'Alterar'}}Corrida</h2>
 
     <form action="" id="form-corrida" (submit) = "salvarCorrida()">
 
@@ -14,6 +14,6 @@
         <input type="radio" name="distancia" id="distancia10" value="10Km" [(ngModel)] = 'distancia'>10km
         <input type="radio" name="distancia" id="distancia25" value= "25Km"[(ngModel)] = 'distancia'>25km
 
-        <button type="submit" id="btnAdd">Cadastrar Corrida</button>
+        <button type="submit" id="btnAdd">{{!editarCorrida ? 'Cadastrar': 'Alterar'}}</button>
     </form>
 </section>
