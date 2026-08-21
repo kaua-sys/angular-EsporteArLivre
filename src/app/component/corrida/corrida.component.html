@@ -9,10 +9,17 @@
         <label for="data">Data da corrida</label>
         <input type="date" name="data" id="data" required [(ngModel)] = 'data'>
 
-        <label for="distancia">Distância disponíveis</label>
-        <input type="radio" name="distancia" id="distancia5" value="5Km" [(ngModel)] = 'distancia'>5km
-        <input type="radio" name="distancia" id="distancia10" value="10Km" [(ngModel)] = 'distancia'>10km
-        <input type="radio" name="distancia" id="distancia25" value= "25Km"[(ngModel)] = 'distancia'>25km
+        <input type="checkbox" name="distancia5" id="distancia5" [(ngModel)]="distancia5">
+        <label for="distancia5">5 km</label>
+        
+        
+        <input type="checkbox" name="distancia10" id="distancia10" [(ngModel)]="distancia10">
+        <label for="distancia10">10 km</label>
+        
+        
+        <input type="checkbox" name="distancia25" id="distancia25" [(ngModel)]="distancia25">
+        <label for="distancia25">25 km</label>
+
 
         <button type="submit" id="btnAdd">{{!editarCorrida ? 'Cadastrar': 'Alterar'}}</button>
     </form>

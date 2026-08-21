@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Corrida } from '../../models/Corrida';
 import { CorridaServiceService } from '../../service/corrida-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-corrida',
@@ -11,73 +11,84 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './corrida.component.html',
   styleUrl: './corrida.component.css'
 })
-export class CorridaComponent {
-   descricao = ''
-   data = ''
-   distancia = ''
+export class CorridaComponent implements OnInit {
+  descricao = '';
+  data = '';
+  distancia5 = false;
+  distancia10 = false;
+  distancia25 = false;
 
-   idCorrida = 0
-   editarCorrida = false
-   constructor(private corridaService: CorridaServiceService, private http: ActivatedRoute) {
-   }
+  idCorrida = 0;
+  editarCorrida = false;
 
-   ngOnInit() {
-    this.idCorrida = Number(this.http.snapshot.paramMap.get('id'))
+  constructor(
+    private corridaService: CorridaServiceService, 
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
-    if(this.idCorrida > 0){
-      this.editarCorrida = true
-      this.corridaDados(this.idCorrida)
+  ngOnInit(): void {
+    this.idCorrida = Number(this.route.snapshot.paramMap.get('id'));
+
+    if (this.idCorrida > 0) {
+      this.editarCorrida = true;
+      this.corridaDados(this.idCorrida);
     }
-   }
+  }
    
-   limparCorrida(){
-    this.descricao = ''
-    this.data = ''
-    this.distancia = ''
-   }
+  limparCorrida(): void {
+    this.descricao = '';
+    this.data = '';
+    this.distancia5 = false;
+    this.distancia10 = false;
+    this.distancia25 = false;
+  }
    
-   corridaDados(idCorrida:number){
+  corridaDados(idCorrida: number): void {
     this.corridaService.listarCorrida(idCorrida).subscribe({
-      next:(dadosCorrida) => {
-        this.descricao = dadosCorrida.descricao
-        this.data = dadosCorrida.data
-        this.distancia = dadosCorrida.distancia
+      next: (dadosCorrida) => {
+        this.descricao = dadosCorrida.descricao;
+        this.data = dadosCorrida.data;
+        this.distancia5 = dadosCorrida.distancia5;
+        this.distancia10 = dadosCorrida.distancia10;
+        this.distancia25 = dadosCorrida.distancia25;
       },
-      error:(msgErro) =>{
-        console.log('Erro ao Listar Corrida',msgErro)
+      error: (msgErro) => {
+        console.error('Erro ao Listar Corrida', msgErro);
       }
-    })
-   }  
+    });
+  }   
 
-   salvarCorrida (){
-    const corrida = new Corrida()
-    corrida.descricao = this.descricao
-    corrida.data = this.data
-    corrida.distancia = this.distancia
+  salvarCorrida(): void {
+    const corrida = new Corrida();
+    corrida.descricao = this.descricao;
+    corrida.data = this.data;
+    corrida.distancia5 = this.distancia5;
+    corrida.distancia10 = this.distancia10;
+    corrida.distancia25 = this.distancia25;
 
-    if(this.editarCorrida) {
-      corrida.id = this.idCorrida
+    if (this.editarCorrida) {
+      corrida.id = this.idCorrida;
 
       this.corridaService.alterarCorrida(corrida).subscribe({
-        next:(resposta) =>{
-          console.log(resposta)
+        next: (resposta) => {
+          console.log('Corrida alterada com sucesso:', resposta);
+          this.limparCorrida();
+          
+          this.router.navigate(['/corridas']); 
         },
-        error: (msgErro) => {
-          console.log(msgErro)
-        }
-      })
-    } else{
+        error: (msgErro) => console.error('Erro ao alterar corrida:', msgErro)
+      });
+    } else {
       this.corridaService.adicionarCorrida(corrida).subscribe({
-        next: (resposta) =>{
-          console.log(resposta)
+        next: (resposta) => {
+          console.log('Corrida adicionada com sucesso:', resposta);
+          this.limparCorrida();
+         
+          this.router.navigate(['/corridas']);
         },
-        error: (msgErro) => {
-          console.log(msgErro)
-        }
-      })
+        error: (msgErro) => console.error('Erro ao adicionar corrida:', msgErro)
+      });
     }
-    this.limparCorrida()
-
-    this.corridaService.listarCorridas()
-   }
+  }
 }

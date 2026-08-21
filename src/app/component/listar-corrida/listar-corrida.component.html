@@ -1,19 +1,31 @@
 <section id="lista-corrida">
     <h2>Lista Corridas</h2>
-
-    @for(elem of listaCorrida();track elem.id){
-        <div class="Corrida">
+  
+    @for (elem of listaCorrida(); track elem.id) {
+      <div class="Corrida">
         <span class="dados-corrida">
-            {{elem.id}} - {{elem.descricao}} - {{elem.distancia}} - {{elem.data}}
+          <strong>#{{ elem.id }}</strong> - {{ elem.descricao }} - {{ elem.data }} 
+          
+          <small>
+            (Distâncias: 
+            @if (elem.distancia5) { <span>5km </span> }
+            @if (elem.distancia10) { <span>10km </span> }
+            @if (elem.distancia25) { <span>25km </span> }
+            @if (!elem.distancia5 && !elem.distancia10 && !elem.distancia25) { Nenhuma }
+            )
+          </small>
         </span>
-        <span class="span-link-corridas">
-            <a class="link-corridas lnk-alterar" (click) = "carregaDadosCorrida(elem)">A</a>
-            <a class="link-corridas lnk-excluir" (click) = "excluir(elem.id)">E</a>
-        </span>
-    </div>
-    }@empty{
-        <div class="div-corrida">
-            Nenhuma Corrida Registrada
-        </div>
+  
+          <button type="button" class="link-corridas lnk-alterar" (click)="carregaDadosCorrida(elem)" title="Alterar">
+            A
+          </button>
+          <button type="button" class="link-corridas lnk-excluir" (click)="excluir(elem.id)" title="Excluir">
+            E
+          </button>
+      </div>
+    } @empty {
+      <div class="div-corrida">
+        Nenhuma Corrida Registrada
+      </div>
     }
-</section>
+  </section>

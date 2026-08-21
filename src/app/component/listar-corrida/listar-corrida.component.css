@@ -92,3 +92,20 @@
         justify-content: flex-end;
     }
 }
+
+.link-corridas {
+    background: transparent;
+    font-family: inherit;
+    outline: none;
+}
+
+.span-link-corridas {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px; 
+}
+  
+.link-corridas {
+    margin: 0 4px; 
+}
