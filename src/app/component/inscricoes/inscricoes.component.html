@@ -1,1 +1,56 @@
-<p>inscricoes works!</p>
+<div id="inscricao">
+    <h2>Inscrição na Corrida</h2>
+
+        <label id="atleta">Atleta Cadastrado</label>
+        <select name="atleta" id="atleta">
+            <option value="at">Selecione o atleta (ou digite o CPF)</option>
+        </select>
+
+        <label for="buscarCpf">Ou Buscar por CPF </label>
+        <input type="text" name="buscarCpf" id="buscarCpf" placeholder="000.000.000-00" maxlength="14"><br><br>
+
+        <label for="corrida">Corrida Escolhida</label>
+        <select name="corrida" id="corrida" required>
+            <option value="co">Corrida Escolhida</option>
+        </select>
+
+        <label for="distancia">Distancia da Prova</label>
+        <input type="radio" name="distancia" id="distancia5" required value="5km">5Km
+        <input type="radio" name="distancia" id="distancia10" required value="10km">10Km
+        <input type="radio" name="distancia" id="distancia25" required value="25km">25Km
+
+        <br><br>
+
+        <label for="tamanho">Tamanho da Camiseta</label>
+        <select name="tamanho" id="tamanho" required>
+            <option value="sele">Selecione</option>
+            <option value="p">P</option>
+            <option value="m">M</option>
+            <option value="g">G</option>
+            <option value="gg">GG</option>
+            <option value="xg">XG</option>
+        </select>
+
+        <label for="categoria">Categoria/Faixa Etária</label>
+        <select name="categoria" id="categoria">
+            <option value="">Geral Masculino / 30 - 39 anos</option>
+        </select>
+
+        <br><br>
+
+            <p class="total">
+                Valor da Inscrição:
+                <strong id="valor-total">
+                    R$ 0,00
+                </strong>
+            </p>
+        <br>
+
+            <input type="checkbox" name="termo" id="termo">Li e aceito os termos do regulamento da prova e declaração de saúde
+
+            <br><br>
+
+        <button id="pagamento">
+            Finalizar e Ir para Pagamento
+        </button>
+</div>
