@@ -16,6 +16,7 @@ export class AtletaComponent {
   //Declarando Atributos
   nome = ''
   cpf = 0
+  data = ''
   sexo = ''
   cep = 0
   ruaLogradouro = ''
@@ -31,7 +32,7 @@ export class AtletaComponent {
 
   //Declaração de funções 
   exibirDados() {
-    console.log(this.nome, this.cpf, this.sexo, this.cep, this.ruaLogradouro, this.bairro, this.cidade, this.uf)
+    console.log(this.nome, this.cpf, this.data, this.sexo, this.cep, this.ruaLogradouro, this.bairro, this.cidade, this.uf)
     this.limparDados()
   }
 
@@ -55,6 +56,7 @@ export class AtletaComponent {
     this.bairro = ''
     this.cidade = ''
     this.uf = ''
+    this.data = ''
   }
 
   //Função para de carregar todos os dados cadastrados 
@@ -69,8 +71,7 @@ carregaDados(idAtleta: number){
        this.bairro = dadosAtleta.bairro
        this.cidade = dadosAtleta.cidade
        this.uf = dadosAtleta.uf
-
-
+       this.data = dadosAtleta.data
     },
     error:(msgErro) =>{
       console.log('Erro ao Listar Atleta', msgErro)
@@ -84,6 +85,7 @@ carregaDados(idAtleta: number){
     atleta.nome = this.nome
     atleta.cpf = this.cpf
     atleta.sexo = this.sexo
+    atleta.data = this.data
     atleta.cep = this.cep
     atleta.ruaLogradouro = this.ruaLogradouro
     atleta.bairro = this.bairro
@@ -113,10 +115,11 @@ carregaDados(idAtleta: number){
       
     }
 
-    
     //Chamando função para que limpe os dados quando cadastrar
     this.limparDados()
 
     this.atletaService.listarAtletas()
+
+    
   }
 }
