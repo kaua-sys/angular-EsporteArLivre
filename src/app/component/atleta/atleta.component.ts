@@ -71,7 +71,7 @@ carregaDados(idAtleta: number){
        this.bairro = dadosAtleta.bairro
        this.cidade = dadosAtleta.cidade
        this.uf = dadosAtleta.uf
-       this.data = dadosAtleta.data
+       this.data = dadosAtleta.data                                                                                                                                              
     },
     error:(msgErro) =>{
       console.log('Erro ao Listar Atleta', msgErro)

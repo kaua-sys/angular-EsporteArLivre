@@ -72,4 +72,17 @@ export class AtletaServiceService {
     const urlApi = `https://6a835a84cb486d243403a3f7.mockapi.io/esportearLivre/Atleta/${atleta.id}`
     return this.http.put<Atleta>(urlApi,atleta)
   }
+  calcularIdade(dataNascimento: string): number{
+    if (!dataNascimento) return 0
+  const hj = new Date()
+  const nascimento = new Date (dataNascimento)
+  let idade = hj.getFullYear() - nascimento.getFullYear()
+  const mes = hj.getMonth() - nascimento.getMonth()
+  
+  if(mes <0 || (mes === 0 && hj.getDate() <nascimento.getDate())){
+    idade--
+  }
+  return idade
+    
+  }
 }

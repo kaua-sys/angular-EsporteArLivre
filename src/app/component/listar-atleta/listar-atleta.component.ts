@@ -60,17 +60,7 @@ export class ListarAtletaComponent {
     this.router.navigate(['/cadastroAtleta', atleta.id])
   }
 
-  calcularIdade(dataNascimento: string): number{
-    if (!dataNascimento) return 0
-  const hj = new Date()
-  const nascimento = new Date (dataNascimento)
-  let idade = hj.getFullYear() - nascimento.getFullYear()
-  const mes = hj.getMonth() - nascimento.getMonth()
-
-  if(mes <0 || (mes === 0 && hj.getDate() <nascimento.getDate())){
-    idade--
-  }
-  return idade
-    
+  calcular(dataNascimento: string): number{
+    return this.listaService.calcularIdade(dataNascimento)
   }
 }
