@@ -3,7 +3,7 @@ import { ListarAtletaComponent } from './listar-atleta.component';
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 
-import{ describe, beforeEach,afterEach,it,verify } from 'vitest'
+import{ describe, beforeEach,afterEach } from 'vitest'
 
 import { AtletaServiceService } from '../../service/atleta-service.service';
 import { Atleta } from '../../models/Atleta';
@@ -59,9 +59,8 @@ describe('ListarAtletaComponent', () => {
   });
 
   afterEach(() => {
-    if(httpMock) {
     httpMock.verify(); 
-}});
+  });
 
   it('should create e carregar lista do serviço', () => {
 
