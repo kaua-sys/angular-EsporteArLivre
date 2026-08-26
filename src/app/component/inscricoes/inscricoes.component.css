@@ -56,53 +56,126 @@
   }
   
 
-  #inscricao input[type="checkbox"] {
-    margin-right: 8px;
-    accent-color: var(--cor--secundaria, #10B981);
-    cursor: pointer;
-  }
-  
+#inscricao {
+  width: 100%;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--cor--primaria, #0c5030);
+}
 
-  .total {
-    font-size: 1.3rem;
-    background-color: var(--cor02, #F9FAFB);
-    padding: 12px 16px;
-    border-radius: 8px;
-    border-left: 4px solid var(--cor--secundaria, #10B981);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  #valor-total {
-    color: var(--cor--primaria, #0c5030);
-    font-size: 1.5rem;
-  }
-  
+#inscricao h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--cor--primaria, #0c5030);
+  padding-bottom: 8px;
+}
 
-  #pagamento {
-    width: 100%;
-    padding: 14px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #ffffff;
-    background-color: var(--botao01, #41c91c);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-    margin-top: 10px;
-  }
-  
-  #pagamento:hover {
-    filter: brightness(0.9);
-    transform: translateY(-1px);
-  }
-  
+#inscricao label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  display: block;
+}
 
-  @media (max-width: 600px) {
-    #inscricao {
-      padding: 20px;
-      margin: 15px auto;
-    }
+#inscricao select,
+#inscricao input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#inscricao select:focus,
+#inscricao input[type="text"]:focus {
+  border-color: var(--cor--secundaria, #10B981);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+/* Container para alinhar as distâncias lado a lado */
+.distancias-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.distancias-group label {
+  font-weight: normal;
+  margin-top: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#inscricao input[type="radio"],
+#inscricao input[type="checkbox"] {
+  accent-color: var(--cor--secundaria, #10B981);
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+/* Estilo para alinhar a caixa do termo de uso */
+.termo-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.total {
+  font-size: 1.3rem;
+  background-color: var(--cor02, #F9FAFB);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid var(--cor--secundaria, #10B981);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#valor-total {
+  color: var(--cor--primaria, #0c5030);
+  font-size: 1.5rem;
+}
+
+#pagamento {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--botao01, #41c91c);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: 10px;
+}
+
+#pagamento:hover {
+  filter: brightness(0.9);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  #inscricao {
+    padding: 20px;
+    margin: 15px auto;
   }
+}

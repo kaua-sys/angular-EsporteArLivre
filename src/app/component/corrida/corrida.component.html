@@ -1,26 +1,37 @@
 <section id="form">
-    <h2>{{!editarCorrida ? 'Cadastrar': 'Alterar'}}Corrida</h2>
+  <h2>{{!editarCorrida ? 'Cadastrar': 'Alterar'}} Corrida</h2>
 
-    <form action="" id="form-corrida" (submit) = "salvarCorrida()">
+  <form id="form-corrida" (submit)="salvarCorrida()">
+    <div class="campo-group">
+      <label for="descricao">Descrição da corrida</label>
+      <textarea name="descricao" id="descricao" cols="30" rows="10" required placeholder="Ex: 5ª Maratona noturna da cidade" [(ngModel)]="descricao"></textarea>
+    </div>
 
-        <label for="descricao">Descrição da corrida</label>
-        <textarea name="descricao" id="descricao" cols="30" rows="10" required placeholder="Ex:5º Maratona noturna da cidade" [(ngModel)] = 'descricao'></textarea>
+    <div class="campo-group">
+      <label for="data">Data da corrida</label>
+      <input type="date" name="data" id="data" required [(ngModel)]="data">
+    </div>
 
-        <label for="data">Data da corrida</label>
-        <input type="date" name="data" id="data" required [(ngModel)] = 'data'>
-
-        <input type="checkbox" name="distancia5" id="distancia5" [(ngModel)]="distancia5">
-        <label for="distancia5">5 km</label>
+    <div class="campo-group">
+      <label>Distâncias Disponíveis</label>
+      <div class="distancias">
+        <label for="distancia5" class="label-inline">
+          <input type="checkbox" name="distancia5" id="distancia5" [(ngModel)]="distancia5">
+          5 km
+        </label>
         
+        <label for="distancia10" class="label-inline">
+          <input type="checkbox" name="distancia10" id="distancia10" [(ngModel)]="distancia10">
+          10 km
+        </label>
         
-        <input type="checkbox" name="distancia10" id="distancia10" [(ngModel)]="distancia10">
-        <label for="distancia10">10 km</label>
-        
-        
-        <input type="checkbox" name="distancia25" id="distancia25" [(ngModel)]="distancia25">
-        <label for="distancia25">25 km</label>
+        <label for="distancia25" class="label-inline">
+          <input type="checkbox" name="distancia25" id="distancia25" [(ngModel)]="distancia25">
+          25 km
+        </label>
+      </div>
+    </div>
 
-
-        <button type="submit" id="btnAdd">{{!editarCorrida ? 'Cadastrar': 'Alterar'}}</button>
-    </form>
+    <button type="submit" id="btnAdd">{{!editarCorrida ? 'Cadastrar': 'Alterar'}}</button>
+  </form>
 </section>
