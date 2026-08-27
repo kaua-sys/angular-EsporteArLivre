@@ -19,7 +19,7 @@ export class InscricoesComponent implements OnInit {
   listaAtletas = signal<Atleta[]>([]);
   listaCorridas = signal<Corrida[]>([]);
 
-  // Variáveis para guardar a escolha do formulário (mantenha como variáveis simples para usar com [(ngModel)])
+  // Variáveis para guardar a escolha do formulário
   atletaSelecionadoId: number | string = '';
   cpfBusca: string = '';
   corridaSelecionadaId: number | string = '';
