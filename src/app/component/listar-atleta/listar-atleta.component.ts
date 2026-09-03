@@ -63,4 +63,11 @@ export class ListarAtletaComponent {
   calcular(dataNascimento: string): number{
     return this.listaService.calcularIdade(dataNascimento)
   }
+
+  calcularImc(Peso: number, altura: number): number {
+    return this.listaService.imc(Peso,altura)
+  }
+  classificacao(imc:number): String{
+    return this.listaService.classificacaoImc(imc)
+  }
 }
