@@ -8,19 +8,25 @@
         <label for="cpf">CPF</label>
         <input type="number" name="cpf" id="cpf" [(ngModel)] = "cpf" class="input02" maxlength="14" required placeholder="Digite seu CPF">
 
-        <label for="data">Data de nascimento</label>
-        <input type="date" name="data" id="data" [(ngModel)] = "data">
+        <label for="data_nascimento">Data de nascimento</label>
+        <input type="date" name="data" id="data" [(ngModel)] = "data_nascimento">
 
         <label for="sexo">Sexo</label>
         <input type="radio" name="sexo" id="sexoM" [(ngModel)] = "sexo" required value="M"> Masculino
         <input type="radio" name="sexo" id="sexoF" [(ngModel)] = "sexo" required value="F"> Feminino
         <input type="radio" name="sexo" id="sexoN" [(ngModel)] = "sexo" required value="N"> Não Declarar
 
+        <label for="peso">Peso</label>
+        <input type="number" name="peso" id="peso" required [(ngModel)] = "peso">
+
+        <label for="altura">Altura</label>
+        <input type="number" name="altura" id="altura" required [(ngModel)] = "altura">
+
         <label for="cep">CEP</label>
         <input type="text" name="cep" id="cep" [(ngModel)] = "cep" class="input02" required maxlength="9" placeholder="Digite o seu cep">
 
-        <label for="rua-logradouro">Rua/Logradouro</label>
-        <input type="text" name="rua-logradouro" id="rua-logradouro" [(ngModel)] = "ruaLogradouro" class="input01" maxlength="100" required placeholder="Digite a Rua ou o Logradouro">
+        <label for="rualogradouro">Rua/Logradouro</label>
+        <input type="text" name="rua-logradouro" id="rua-logradouro" [(ngModel)] = "rua_logradouro" class="input01" maxlength="100" required placeholder="Digite a Rua ou o Logradouro">
 
         <label for="bairro">Bairro</label>
         <input type="text" name="bairro" id="bairro" [(ngModel)] = "bairro" class="input02" maxlength="60" required placeholder="Digite o nome do seu Bairro">
