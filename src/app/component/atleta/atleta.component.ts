@@ -16,13 +16,15 @@ export class AtletaComponent {
   //Declarando Atributos
   nome = ''
   cpf = 0
-  data = ''
+  data_nascimento = ''
   sexo = ''
   cep = 0
-  ruaLogradouro = ''
+  rua_logradouro = ''
   bairro = ''
   cidade = ''
   uf = ''
+  peso = 0
+  altura = 0
 
   idAtleta = 0
   editar = false
@@ -32,7 +34,7 @@ export class AtletaComponent {
 
   //Declaração de funções 
   exibirDados() {
-    console.log(this.nome, this.cpf, this.data, this.sexo, this.cep, this.ruaLogradouro, this.bairro, this.cidade, this.uf)
+    console.log(this.nome, this.cpf, this.data_nascimento, this.sexo, this.cep, this.rua_logradouro, this.bairro, this.cidade, this.uf,this.peso,this.altura)
     this.limparDados()
   }
 
@@ -52,11 +54,13 @@ export class AtletaComponent {
     this.cpf = 0
     this.sexo = ''
     this.cep = 0
-    this.ruaLogradouro = ''
+    this.rua_logradouro = ''
     this.bairro = ''
     this.cidade = ''
     this.uf = ''
-    this.data = ''
+    this.data_nascimento = ''
+    this.altura = 0
+    this.peso = 0
   }
 
   //Função para de carregar todos os dados cadastrados 
@@ -67,11 +71,13 @@ carregaDados(idAtleta: number){
        this.cpf = dadosAtleta.cpf
        this.sexo = dadosAtleta.sexo
        this.cep = dadosAtleta.cep
-       this.ruaLogradouro = dadosAtleta.ruaLogradouro
+       this.rua_logradouro = dadosAtleta.rua_logradouro
        this.bairro = dadosAtleta.bairro
        this.cidade = dadosAtleta.cidade
        this.uf = dadosAtleta.uf
-       this.data = dadosAtleta.data                                                                                                                                              
+       this.data_nascimento = dadosAtleta.data_nascimento
+       this.peso = dadosAtleta.peso
+       this.altura = dadosAtleta.altura                                                                                                                                              
     },
     error:(msgErro) =>{
       console.log('Erro ao Listar Atleta', msgErro)
@@ -85,12 +91,14 @@ carregaDados(idAtleta: number){
     atleta.nome = this.nome
     atleta.cpf = this.cpf
     atleta.sexo = this.sexo
-    atleta.data = this.data
+    atleta.data_nascimento = this.data_nascimento
     atleta.cep = this.cep
-    atleta.ruaLogradouro = this.ruaLogradouro
+    atleta.rua_logradouro = this.rua_logradouro
     atleta.bairro = this.bairro
     atleta.cidade = this.cidade
     atleta.uf = this.uf
+    atleta.peso = this.peso
+    atleta.altura = this.altura
 
     if(this.editar) {
       atleta.id = this.idAtleta
