@@ -4,7 +4,7 @@
     @for(elem of listaAtletas(); track elem.id){
         <div class="atleta-item">
             <span class="span-dados-atleta">
-                {{elem.id}} - {{elem.nome}} - {{calcular(elem.data)}} anos - {{elem.cpf}} - {{elem.cidade}} / {{elem.uf}}
+                {{elem.id}} - {{elem.nome}} - {{calcular(elem.data_nascimento)}} anos - {{elem.cpf}} - {{elem.cidade}} / {{elem.uf}} - O seu Imc é {{calcularImc(elem.peso,elem.altura)}} - {{classificacao(calcularImc(elem.peso,elem.altura))}}
             </span>
             <span class="span-lnk-atletas">
                 <a class="lnk-atleta lnk-alterar" (click) = "carregaDadosAtletaForm(elem)">A</a>
